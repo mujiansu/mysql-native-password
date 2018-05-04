@@ -14,5 +14,5 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 3306 33060
-sed -i '/^\[mysqld\]$/a\default-authentication-plugin=mysql_native_password' /etc/my.cnf
+RUN sed -i '/^\[mysqld\]$/a\default-authentication-plugin=mysql_native_password' /etc/my.cnf
 CMD ["mysqld"]
