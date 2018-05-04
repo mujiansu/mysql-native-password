@@ -11,7 +11,7 @@ RUN mkdir /docker-entrypoint-initdb.d
 VOLUME /var/lib/mysql
 
 COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sh","/entrypoint.sh"]
 
 EXPOSE 3306 33060
 RUN sed -i '/^\[mysqld\]$/a\default-authentication-plugin=mysql_native_password' /etc/my.cnf
